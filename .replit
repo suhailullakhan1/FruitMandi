@@ -18,3 +18,20 @@ mode = "sequential"
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "npm run dev"
+
+[[workflows.workflow]]
+name = "Setup Database"
+author = 22003484
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npx drizzle-kit generate"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npx drizzle-kit migrate"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npm run db:seed"

@@ -1,0 +1,95 @@
+Got it 👍 Let me reframe your request in a **professional, structured, AI-friendly requirement specification** so that any developer or AI tool can clearly understand and implement it efficiently.
+
+---
+
+### **Requirement Specification: Fruit Weightage Recording & Billing System**
+
+#### **Problem Statement**
+
+The current system has issues with:
+
+1. **Bill Printing & Downloading** – The generated bills are not printing or downloading properly.
+2. **Weightage Recording** – The recording of fruit weights is not fully integrated with the billing system.
+3. **Multi-Level Weight Recording** – The system should support both **single tonnage entries** and **multiple crate-based entries**.
+4. **Category-wise Aggregation** – Fruits such as *mango* can have multiple types (e.g., **by size and by variety**) which must be recorded separately but aggregated in billing.
+
+---
+
+#### **Functional Requirements**
+
+1. **Weightage Recording**
+
+   * Allow recording of fruits by:
+
+     * **Single Tonnage** (e.g., 1 ton of mangoes).
+     * **Multiple Crates** (e.g., 10 crates of mangoes, each with individual weights).
+   * System should calculate the **total weight per fruit category**, summing across different types/sizes.
+
+2. **Billing Integration**
+
+   * Link recorded weightage directly with the billing system.
+   * Billing should:
+
+     * Display itemized details by fruit type/size.
+     * Calculate total quantity (weight) and corresponding charges.
+     * Support aggregated totals per fruit (e.g., all mango varieties combined).
+
+3. **Bill Printing & Downloading**
+
+   * Ensure proper **PDF generation** with clean formatting.
+   * Include:
+
+     * Date & Time
+     * Customer Details
+     * Fruit Type, Variety/Size, Weight (tonnage or crates), Unit Price, and Subtotal
+     * Grand Total (across all fruits).
+   * Provide options to:
+
+     * **Download as PDF**
+     * **Print directly**
+
+---
+
+#### **Example Case**
+
+* **Input:**
+
+  * Mango – Large Size – 200 kg
+  * Mango – Medium Size – 150 kg
+  * Mango – Small Size – 100 kg
+  * Apple – 250 kg
+
+* **Expected Output (Bill):**
+
+  ```
+  -------------------------------------------------
+  Customer: XYZ Traders
+  Date: 21-Aug-2025
+
+  Itemized Details:
+  - Mango (Large)    : 200 kg × Rate → Subtotal
+  - Mango (Medium)   : 150 kg × Rate → Subtotal
+  - Mango (Small)    : 100 kg × Rate → Subtotal
+  - Apple            : 250 kg × Rate → Subtotal
+
+  Total Mango Weight : 450 kg
+  Grand Total        : XXXX
+
+  -------------------------------------------------
+  ```
+
+---
+
+#### **Non-Functional Requirements**
+
+* **Accuracy**: All weights and totals must be calculated precisely.
+* **Usability**: User-friendly interface for quick data entry.
+* **Reliability**: Bills must download/print without failure.
+
+---
+
+✅ This structured version clearly outlines **what needs to be fixed** (billing + printing), **what needs to be added** (multi-crate + aggregation), and **how the system should behave** (linked recording + professional billing).
+
+---
+
+Would you like me to also **create a system flow diagram / data model** (entities like Fruit → Type → Weight → Billing) so it’s easier for an AI tool or developer to implement directly?

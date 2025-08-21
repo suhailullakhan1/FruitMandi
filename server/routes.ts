@@ -398,21 +398,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   // Initialize default fruits if none exist
   try {
-    const fruits = await storage.getFruits();
-    if (fruits.length === 0) {
-      const defaultFruits = [
-        { name: 'Mangoes', currentRate: '70.00', unit: 'kg', isActive: true },
-        { name: 'Apples', currentRate: '140.00', unit: 'kg', isActive: true },
-        { name: 'Oranges', currentRate: '60.00', unit: 'kg', isActive: true },
-        { name: 'Bananas', currentRate: '50.00', unit: 'kg', isActive: true },
-        { name: 'Grapes', currentRate: '120.00', unit: 'kg', isActive: true },
-      ];
-
-      // Note: Since we're using DatabaseStorage, we'd need to add these via SQL or migration
-      console.log('Default fruits need to be added to database');
-    }
+    // Skip fruit initialization until valid database is connected
+    console.log('Skipping fruit initialization - database connection required');
   } catch (error) {
-    console.error('Error initializing fruits:', error);
+    console.log('Database not available yet - this is expected during development setup');
   }
 
   const httpServer = createServer(app);
